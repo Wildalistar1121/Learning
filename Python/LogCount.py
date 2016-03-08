@@ -25,6 +25,7 @@ else:
 	
 #Handle the access_log and count the number of connection each hour
 for line in handle:
+	#Change the order of time to make data easier to read  EX:12/10/2011 -> 2011/10/12 
 	if line.split()[3][1:].split(':')[0].split('/')[2]+'/'+line.split()[3][1:].split(':')[0].split('/')[1]+'/'+line.split()[3][1:].split(':')[0].split('/')[0]+'+'+line.split()[3][1:].split(':')[1]+':59:59~'+line.split()[3][1:].split(':')[1]+':00:00' not in count:
 		count[line.split()[3][1:].split(':')[0].split('/')[2]+'/'+line.split()[3][1:].split(':')[0].split('/')[1]+'/'+line.split()[3][1:].split(':')[0].split('/')[0]+'+'+line.split()[3][1:].split(':')[1]+':59:59~'+line.split()[3][1:].split(':')[1]+':00:00']=1
 	else:
@@ -39,7 +40,8 @@ for key,val in count.items():
 lst.sort(reverse=op)
 
 for key,val in lst:
-	print val, key
+	print val,key 
+
 
 
 
